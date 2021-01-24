@@ -1,0 +1,21 @@
+{
+  "name": "electron-extension-react-typescript",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "lol": "electron dist/main.js",
+    "build": "cross-env NODE_ENV=production gulp build",
+    "build:dev": "cross-env NODE_ENV=development gulp build",
+    "bootstrap": "yarn install --force",
+    "test:background": "cd packages/electron-background && jest",
+    "test:popup": "cd packages/electron-popup && jest",
+    "test": "yarn test:background && yarn test:popup"
+  },
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

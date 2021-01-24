@@ -1,4 +1,5 @@
 import * as React from "react"
+import "./RootComponent.css"
 // type checking seems to be broken for props in vscode, need to fix that.
 class RootComponent extends React.Component {
   state = {
@@ -17,7 +18,7 @@ class RootComponent extends React.Component {
     const { nodeVersion, chromeVersion, electronVersion } = this.state
 
     return (
-      <div>
+      <div className="container">
         <h3>Node = v${nodeVersion}</h3>
         <h3>Chrome = v${chromeVersion}</h3>
         <h3>Electron = v${electronVersion}</h3>

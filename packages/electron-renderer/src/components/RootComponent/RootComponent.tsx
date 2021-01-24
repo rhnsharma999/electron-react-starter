@@ -12,6 +12,15 @@ class RootComponent extends React.Component {
     const nodeVersion = process.versions.node
     const chromeVersion = process.versions.chrome
     const electronVersion = process.versions.electron
+
+    const myNotification = new Notification("Title", {
+      body: "Notification from the Renderer process",
+    })
+
+    myNotification.onclick = () => {
+      console.log("Notification clicked")
+    }
+
     this.setState({ nodeVersion, chromeVersion, electronVersion })
   }
   render() {

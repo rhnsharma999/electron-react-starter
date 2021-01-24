@@ -14,6 +14,7 @@ const projectRoot = path.resolve(monoRoot, "..")
 
 // constants for tasks (might move them later)
 const BUILD = "build"
+const BUILD_FOLDERS = "build:folders"
 const BUILD_MAIN = "build:main"
 const BUILD_RENDERER = "build:renderer"
 const BUILD_CLEAN = "build:clean"
@@ -49,6 +50,14 @@ task(BUILD_MAIN, (callback) => {
   })
 })
 
+task(BUILD_FOLDERS, (callback) => {
+  const distPath = path.resolve(projectRoot, "dist")
+  if (!fs.existsSync(distPath)) {
+    fs.mkdirSync(distPath)
+  }
+  callback()
+})
+
 task(BUILD_CLEAN, () => del([`${projectRoot}/dist/**`]))
 
-task(BUILD, series(BUILD_CLEAN, parallel(BUILD_MAIN, BUILD_RENDERER)))
+task(BUILD, series(BUILD_FOLDERS, BUILD_CLEAN, parallel(BUILD_MAIN, BUILD_RENDERER)))

@@ -11,8 +11,5 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "electron": "^11.2.1"
-  }
+  "license": "ISC"
 }
